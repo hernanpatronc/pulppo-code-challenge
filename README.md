@@ -1,8 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pulppo Code Challenge
 
-## Getting Started
+Este es un proyecto hecho en next.js para candidatos a sumarse a Pulppo. **Este challenge está pensado para unas 2 horas. En caso de tardar más, ¡no te preocupes! Mandanos lo que hayas hecho en esas dos horas, es nuestra culpa y no queremos quitarte mucho de tu tiempo (estamos tratando de mejorar este challenge para que tenga la dificultad adecuada). No te juzgaremos por lo que no hayas llegado a hacer**
 
-First, run the development server:
+### Inicializar el proyecto
+
+Primero, correr el servidor de desarrollo:
 
 ```bash
 npm run dev
@@ -10,25 +12,20 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver el resultado.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Para editar, puedes ir al archivo `pages/index.tsx` o `pages/search.tsx`. La página se actualizará sola al editar.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Challenge
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+El challenge consistirá en hacer un buscador de inmuebles simple. Para eso, tendrás que editar la página `pages/search.tsx` para adaptarla a los siguientes requerimientos:
 
-## Learn More
+-   Cada vez que el usuario ingrese una letra, deberá pegarle a la [API de pulppo](https://api.pulppo.com/listings/search). Sin embargo, deberá implementar una estrategia de `debounce` de 300 ms. Esto quiere decir que, una vez que el usuario ingrese una letra deberá esperar 300ms. Si ninguna letra nueva es ingresada, deberá mandar la solicitud, en caso contrario, deberá esperar nuevamente 300 ms y repetir el proceso (esto es para no hacer llamadas inecesarias a la API cuando el usuario está tecleando rápidamente)
+-   Para buscar, deberá pasar el valor por query params en el parámetro search (`?search={{termino_busqueda}}`). A su vez, podrá pasar tres parámtros más, minPrice y maxPrice para filtrar por precio y propertyTypes para filtrar por tipo de propiedad (Appartment, House, Office, Land y Fincas, se pasa más de uno separados por coma o uno solo). Se deberán implementar esos filtros de precio y tipo de propiedad al hacer click en el botón de filtros
+-   Los resultados deberán mostrarse en el div con class results. Queda a discresión del postulante, la forma en que se mostrarán. _Sumará si se implementa paginación, pero no es obligatorio (en caso contrario mostrar sólo la primera página)_
 
-To learn more about Next.js, take a look at the following resources:
+Se tomará en cuenta estructura de archivos, manejo de css y de git y organización en general.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Entrega
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Se deberá hacer una Pull Request al [repositorio de github](https://github.com/hernanpatronc/pulppo-code-challenge)
